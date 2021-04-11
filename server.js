@@ -151,17 +151,30 @@ app.post('/api/product/add', (req, res) => {
   product.createdAt = new Date();
   product.id = productList.data.length + 1;
   productList.data.push(product);
-  res.status(200).send(product);
+  res.status(200).send({
+    message : 'Product added successfully'
+  });
 });
 
-app.put('api/product/:id/edit', (req, res) => {
+app.put('/api/product/:id/edit', (req, res) => {
   var modifyProduct = req.body;
   var id = req.params.id;
   modifyProduct.updatedAt = new Date();
   var useproductr = productList.data.find(value => value.id == id);
   product = {...product, ...modifyProduct}
   productList.data[product.id - 1] = product;
-  res.status(200).send(product);
+  res.status(200).send({
+    message : 'Product updated successfully'
+  });
+});
+
+app.delete('/api/product/:id/delete', (req, res) => {
+  var id = req.params.id;
+  var index = productList.data.findIndex(value => value.id == id);
+  productList.data.splice(index, 1);
+  res.status(200).send({
+    message : 'User deleted successfully'
+  });
 });
 
 app.get('/users', (req, res) => {
@@ -198,6 +211,7 @@ app.put('/user/:id/edit', (req, res) => {
   userList.data[user.id - 1] = user;
   res.status(200).send(user);
 });
+
 
 app.patch('/user/:id/update', (req, res) => {
   var modifiedUser = req.body;
