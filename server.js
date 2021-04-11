@@ -149,8 +149,8 @@ app.get('/api/products', (req, res) => {
 app.post('/api/product/add', (req, res) => {
   var product = req.body;
   product.createdAt = new Date();
-  product.id = productList.data.length + 1;
-  productList.data.push(product);
+  product.id = productList.length + 1;
+  productList.push(product);
   res.status(200).send({
     message : 'Product added successfully'
   });
@@ -160,9 +160,9 @@ app.put('/api/product/:id/edit', (req, res) => {
   var modifyProduct = req.body;
   var id = req.params.id;
   modifyProduct.updatedAt = new Date();
-  var useproductr = productList.data.find(value => value.id == id);
+  var product = productList.find(value => value.id == id);
   product = {...product, ...modifyProduct}
-  productList.data[product.id - 1] = product;
+  productList[product.id - 1] = product;
   res.status(200).send({
     message : 'Product updated successfully'
   });
@@ -170,8 +170,8 @@ app.put('/api/product/:id/edit', (req, res) => {
 
 app.delete('/api/product/:id/delete', (req, res) => {
   var id = req.params.id;
-  var index = productList.data.findIndex(value => value.id == id);
-  productList.data.splice(index, 1);
+  var index = productList.findIndex(value => value.id == id);
+  productList.splice(index, 1);
   res.status(200).send({
     message : 'Product deleted successfully'
   });
