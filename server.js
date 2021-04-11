@@ -173,7 +173,7 @@ app.delete('/api/product/:id/delete', (req, res) => {
   var index = productList.data.findIndex(value => value.id == id);
   productList.data.splice(index, 1);
   res.status(200).send({
-    message : 'User deleted successfully'
+    message : 'Product deleted successfully'
   });
 });
 
