@@ -111,9 +111,57 @@ var SECRET_KEY = "38b41ce7f8bb2a0aeb695dfe3bcf8823383f41bdbd69296e96e2e4e2d14b90
 var ACCESS_TOKEN_SECRET = "ea3f31ab31436991eb0c8a496a37d1a67dcf97dc52fe710fff4ec1c30d184fc5ecdbe9173b4dc32cb654f44ecd90c20d400e6a4dfc955391a094c9a1dd4da83c";
 var REFRESH_TOKEN_SECRET = "a6574268882fd311666eadc17e00cc0a4bf88d9cd326f9f08d6db7297a467810f1a8412add1152b74144424476558008e1458222dc5aa77de75e206d6423b796";
 var refreshTokenList = [];
+var productList = [
+  {
+    id : 1,
+    name: 'One Plus 9',
+    price: 40000,
+    cover_image: "https://static.toiimg.com/thumb/msid-77812222,width-240,resizemode-4/OnePlus-Clover.jpg",
+    category: 06,
+    description: "OnePlus Clover smartphone runs on Android v10 (Q) operating system. The phone is powered by Octa core (1.8 GHz, Quad core, Kryo 240 + 1.8 GHz, Quad core, Kryo 240) processor.It runs on the Qualcomm Snapdragon 460 Chipset. It has 4 GB, 4 GB RAM and 64 GB internal storage , expandable Yes, Upto 256 GB via microSD card."
+  },
+  {
+    id : 2,
+    name: 'Holy Bible',
+    price: 500,
+    cover_image: "https://holybooks-lichtenbergpress.netdna-ssl.com/wp-content/uploads/Downnload-the-Bible-PDF-King-James-Version1-202x300.jpg",
+    category: 01,
+    description: "The King James Holy Bible is also placed into the public domain. It was created directly from the public domain text and converted to PDF format using “DaVince Tools”, a software product that converts text files and other file formats into PDF."
+  },
+  {
+    id : 3,
+    name: 'Mens T-shirt',
+    price: 1099,
+    cover_image: "https://5.imimg.com/data5/PJ/DI/MY-3877854/round-neck-plain-tshirt-with-multi-color-design-500x500.png",
+    category: 07,
+    description: "Flairmart Online Services Private Limited - Offering Cotton Causal, Office Round Neck Plain Tshirt With Multi Color Design at Rs 135/piece"
+  }
+]
 
 app.get('/', (req, res) => {
   res.status(200).send('Server is Running ' + new Date())
+});
+
+app.get('/api/products', (req, res) => {
+  res.status(200).send(productList);
+});
+
+app.post('/api/product/add', (req, res) => {
+  var product = req.body;
+  product.createdAt = new Date();
+  product.id = productList.data.length + 1;
+  productList.data.push(product);
+  res.status(200).send(product);
+});
+
+app.put('api/product/:id/edit', (req, res) => {
+  var modifyProduct = req.body;
+  var id = req.params.id;
+  modifyProduct.updatedAt = new Date();
+  var useproductr = productList.data.find(value => value.id == id);
+  product = {...product, ...modifyProduct}
+  productList.data[product.id - 1] = product;
+  res.status(200).send(product);
 });
 
 app.get('/users', (req, res) => {
