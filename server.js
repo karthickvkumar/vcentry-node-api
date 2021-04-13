@@ -138,8 +138,34 @@ var productList = [
   }
 ]
 
+var HR_USER_LIST = [];
+
+
 app.get('/', (req, res) => {
   res.status(200).send('Server is Running ' + new Date())
+});
+
+app.post('/api/login', (req, res) => {
+  var user = req.body;
+  if(!user.email || !user.password){
+    res.status(200).send({
+      message : 'Invalid Username / Password'
+    });
+    return;
+  }
+  res.status(200).send({
+    message : 'Login successfully',
+  });
+});
+
+app.post('/api/employee/add', (req, res) => {
+  var user = req.body;
+  user.createdAt = new Date();
+  user.id = HR_USER_LIST.length + 1;
+  HR_USER_LIST.push(user);
+  res.status(200).send({
+    message : 'User created successfully'
+  });
 });
 
 app.get('/api/products', (req, res) => {
