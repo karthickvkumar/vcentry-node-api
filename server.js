@@ -149,12 +149,14 @@ app.post('/api/login', (req, res) => {
   var user = req.body;
   if(!user.email || !user.password){
     res.status(200).send({
-      message : 'Invalid Username / Password'
+      message : 'Invalid Username / Password',
+      authenticate : false
     });
     return;
   }
   res.status(200).send({
     message : 'Login successfully',
+    authenticate : true
   });
 });
 
