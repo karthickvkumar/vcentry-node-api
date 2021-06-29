@@ -138,6 +138,449 @@ var productList = [
   }
 ]
 
+var  jobList = {
+  page_count : 1,
+  jobs : [
+    {
+      "job_title" : "React JS Developer",
+      "job_id" : 1,
+      "category": "reactjs",
+      "company_name" : "Creative Agency",
+      "location" : "Chennai",
+      "min_salary" : "25000",
+      "max_salary" : "30000",
+      "experience" : "1-2",
+      "company_logo" : "/img/icon/job-list1.png",
+      "type" : "Full Time",
+      "duration": "18-06-2021"
+    },
+    {
+      "job_title" : ".Net Programming",
+      "job_id" : 2,
+      "category": ".net",
+      "company_name" : "Creative Agency",
+      "location" : "Delhi",
+      "min_salary" : "15000",
+      "max_salary" : "18000",
+      "experience" : "2-5",
+      "company_logo" : "/img/icon/job-list3.png",
+      "type" : "Part Time",
+      "duration": "17-06-2021"
+    },
+    {
+      "job_title" : "AI and Machine Learning Engineer",
+      "job_id" : 3,
+      "category": "python",
+      "company_name" : "Creative Agency",
+      "location" : "Mumbai",
+      "min_salary" : "30000",
+      "max_salary" : "40000",
+      "company_logo" : "/img/icon/job-list4.png",
+      "experience" : "6-12",
+      "type" : "Freelance",
+      "duration": "15-06-2021"
+    },
+    {
+      "job_title" : "React JS Developer",
+      "job_id" : 4,
+      "category": "reactjs",
+      "company_name" : "Creative Agency",
+      "location" : "Kochin",
+      "min_salary" : "10000",
+      "max_salary" : "12000",
+      "experience" : "2-6",
+      "company_logo" : "/img/icon/job-list1.png",
+      "type" : "Remote",
+      "duration": "16-06-2021"
+    },
+    {
+      "job_title" : "Angular Developer",
+      "job_id" : 5,
+      "category": "angular",
+      "company_name" : "Creative Agency",
+      "location" : "Chennai",
+      "min_salary" : "20000",
+      "max_salary" : "25000",
+      "experience" : "1-2",
+      "company_logo" : "/img/icon/job-list2.png",
+      "type" : "Full Time",
+      "duration": "12-06-2021"
+    },
+    {
+      "job_title" : ".Net Programming",
+      "job_id" : 6,
+      "category": ".net",
+      "company_name" : "Creative Agency",
+      "location" : "Mumbai",
+      "min_salary" : "35000",
+      "max_salary" : "40000",
+      "experience" : "4-8",
+      "company_logo" : "/img/icon/job-list3.png",
+      "type" : "Part Time",
+      "duration": "10-06-2021"
+    },
+    {
+      "job_title" : "AI and Machine Learning Engineer",
+      "job_id" : 7,
+      "category": "python",
+      "company_name" : "Creative Agency",
+      "location" : "Delhi",
+      "min_salary" : "25000",
+      "max_salary" : "35000",
+      "experience" : "1-4",
+      "company_logo" : "/img/icon/job-list4.png",
+      "type" : "Remote",
+      "duration": "18-06-2021"
+    },
+]
+}
+
+var jobDetails = [
+  {
+    "job_title" : "React JS Developer",
+    "job_id" : 1,
+    "category": "reactjs",
+    "company_name" : "Creative Agency",
+    "location" : "Chennai",
+    "min_salary" : "25000",
+    "max_salary" : "30000",
+    "experience" : "1-2",
+    "company_logo" : "/img/icon/job-list1.png",
+    "type" : "Full Time",
+    "duration": "18-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+  {
+    "job_title" : ".Net Programming",
+      "job_id" : 2,
+      "category": ".net",
+      "company_name" : "Creative Agency",
+      "location" : "Delhi",
+      "min_salary" : "15000",
+      "max_salary" : "18000",
+      "experience" : "2-5",
+      "company_logo" : "/img/icon/job-list3.png",
+      "type" : "Part Time",
+      "duration": "17-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+  {
+    "job_title" : "AI and Machine Learning Engineer",
+      "job_id" : 3,
+      "category": "python",
+      "company_name" : "Creative Agency",
+      "location" : "Mumbai",
+      "min_salary" : "30000",
+      "max_salary" : "40000",
+      "company_logo" : "/img/icon/job-list4.png",
+      "experience" : "6-12",
+      "type" : "Freelance",
+      "duration": "15-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+  {
+    "job_title" : "React JS Developer",
+      "job_id" : 4,
+      "category": "reactjs",
+      "company_name" : "Creative Agency",
+      "location" : "Kochin",
+      "min_salary" : "10000",
+      "max_salary" : "12000",
+      "experience" : "2-6",
+      "company_logo" : "/img/icon/job-list1.png",
+      "type" : "Remote",
+      "duration": "16-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+  {
+    "job_title" : "Angular Developer",
+      "job_id" : 5,
+      "category": "angular",
+      "company_name" : "Creative Agency",
+      "location" : "Chennai",
+      "min_salary" : "20000",
+      "max_salary" : "25000",
+      "experience" : "1-2",
+      "company_logo" : "/img/icon/job-list2.png",
+      "type" : "Full Time",
+      "duration": "12-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+  {
+    "job_title" : ".Net Programming",
+      "job_id" : 6,
+      "category": ".net",
+      "company_name" : "Creative Agency",
+      "location" : "Mumbai",
+      "min_salary" : "35000",
+      "max_salary" : "40000",
+      "experience" : "4-8",
+      "company_logo" : "/img/icon/job-list3.png",
+      "type" : "Part Time",
+      "duration": "10-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+  {
+    "job_title" : "AI and Machine Learning Engineer",
+      "job_id" : 7,
+      "category": "python",
+      "company_name" : "Creative Agency",
+      "location" : "Delhi",
+      "min_salary" : "25000",
+      "max_salary" : "35000",
+      "experience" : "1-4",
+      "company_logo" : "/img/icon/job-list4.png",
+      "type" : "Remote",
+      "duration": "18-06-2021",
+    "vacancy" : 20,
+    "description" : "It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.",
+    "skills": [
+      {
+        "title" : "Strong problem solving and debugging skills"
+      },
+      {
+        "title" : "Mobile Applicationin iOS/Android/Tizen or other platform"
+      },
+      {
+        "title" : "Research and code , libraries, APIs and frameworks"
+      },
+      {
+        "title" : "Strong knowledge on software development life cycle"
+      }
+    ],
+    "experience" : [
+      {
+        "title" : "3 or more years of professional design experience",
+      },
+      {
+        "title" : "Direct response email experience",
+      },
+      {
+        "title" : "Familiarity with mobile and web apps preferred",
+      },
+      {
+        "title" : "Experience using Invision a plus",
+      }
+    ],
+    "company_detail" : {
+      "name" : "Creative Agency",
+      "description" : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "web" : "creative-agency.com",
+      "email" : "carrier.colorlib@gmail.com"
+    }
+  },
+]
+
 var HR_USER_LIST = [];
 
 
@@ -159,6 +602,27 @@ app.post('/api/login', (req, res) => {
     authenticate : true
   });
 });
+
+// API Job Finder
+
+app.get('/api/job-list', (req, res) => {
+  res.status(200).send(jobList);
+});
+
+
+app.get('/api/job/:id', (req, res) => {
+  var id = req.params.id;
+  var job = jobDetails.data.find(value => value.id == id);
+  if(job && job.hasOwnProperty('id')){
+    res.status(200).send(job)
+  }
+  else{
+    res.status(400).send({
+      message : 'Job Not Found'
+    })
+  }
+});
+
 
 app.post('/api/employee/add', (req, res) => {
   var user = req.body;
