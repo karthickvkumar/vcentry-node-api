@@ -613,7 +613,7 @@ app.get('/api/job-list', (req, res) => {
 app.get('/api/job/:id', (req, res) => {
   var id = req.params.id;
   var job = jobDetails.find(value => value.job_id == id);
-  if(job && job.hasOwnProperty('id')){
+  if(job && job.hasOwnProperty('job_id')){
     res.status(200).send(job)
   }
   else{
