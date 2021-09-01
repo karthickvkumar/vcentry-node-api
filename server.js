@@ -6,6 +6,36 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const mysql = require('mysql');
+const bcrypt = require('bcrypt');
+
+const sgMail = require('@sendgrid/mail');
+const multer  = require('multer');
+
+sgMail.setApiKey('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');
+
+const storage = multer.diskStorage({
+  destination : (req, file, callback) => {
+    callback(null, './public/images');
+  },
+  filename : (req, file, callback) => {
+    let fileType;
+    if(file.mimetype == 'image/gif'){
+      fileType = '.gif';
+    }
+    if(file.mimetype == 'image/png'){
+      fileType = '.png';
+    }
+    if(file.mimetype == 'image/jpeg'){
+      fileType = '.jpg';
+    }
+    const fileName = 'image-'+Date.now()+fileType;
+    callback(null, fileName);
+  }
+});
+var upload = multer({storage : storage});
+
+const agentRouter = require('./routes/agent-route');
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -17,6 +47,104 @@ app.use(cors({
   credentials: true,
   origin: "*"
 }));
+
+app.use('/', agentRouter);
+
+app.post('/api/upload', upload.single('file'), (req, res) => {
+  if(!req.file){
+    res.status(500).send({
+      message : 'Server Error'
+    })
+  }
+
+  res.status(200).send({
+    url : 'http://localhost:8080/images/' + req.file.filename
+  })
+})
+
+app.post('/api/uploads', upload.array('file', 12), (req, res) => {
+  if(req.files.length == 0){
+    res.status(500).send({
+      message : 'Server Error'
+    })
+  }
+
+  const images = req.files.map((file, index) => {
+      return {
+        url : 'http://localhost:8080/images/' + file.filename
+      }
+  })
+  res.status(200).send(images);
+})
+
+app.get('/images/:filename', (req, res) => {
+  const filePath = __dirname + '/public/images/'+req.params.filename;
+  res.sendFile(filePath);
+})
+
+app.post('/api/register', async (req, res) => {
+  var users = [];
+  let foundUser = users.find((data) => req.body.email === data.email);
+        if (!foundUser) {
+
+        let hashPassword = await bcrypt.hash(req.body.password, 10);
+
+        let newUser = {
+            id: Date.now(),
+            username: req.body.username,
+            email: req.body.email,
+            password: hashPassword,
+        };
+        users.push(newUser);
+
+        sgMail.send({
+          to : req.body.email,
+          from : 'karthick.afx@gmail.com',
+          subject : "Account Created Successfully!",
+          html : '<h1>Successfully created the Account</h1>',
+          templateId : "d-677fe7de83f6414ebad4f94c4366eca9"
+        }).then(() => {
+          res.send("Successfully Created");
+        })
+        
+    } else {
+        res.send("User account Already Exist");
+    }
+})
+
+app.post('/api/login', async (req, res) => {
+  let foundUser = users.find((data) => req.body.email === data.email);
+    if (foundUser) {
+
+      let submittedPass = req.body.password; 
+      let storedPass = foundUser.password; 
+
+      const passwordMatch = await bcrypt.compare(submittedPass, storedPass);
+      if (passwordMatch) {
+          let usrname = foundUser.username;
+          res.send("Login Successfull");
+      } else {
+          res.send("Invalid Passoword");
+      }
+  }
+  else{
+    res.send("Invalid Username");
+  }
+});
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: ""
+});
+
+// connection.connect((error) => {
+//   if(error){
+//     throw error;
+//   }
+//   console.log("SQL Database is Connected")
+// })
+
 
 var userList = {
   "data": [
@@ -583,6 +711,30 @@ var jobDetails = [
 
 var HR_USER_LIST = [];
 
+app.post('/api/db/create', (req, res) => {
+  var dbName = req.body.db_name;
+  if(!dbName){
+    res.status(401).send({
+      message : 'Invalid Database Name',
+    }); 
+    return;
+  }
+
+  connection.query("CREATE DATABASE " + dbName , (error, result) => {
+    if(error){
+      res.status(500).send({
+        message : error
+      })
+      throw error;
+    }
+
+    console.log(result);
+    res.status(200).send({
+      message : "Database created successfully"
+    })
+  })
+
+})
 
 app.get('/', (req, res) => {
   res.status(200).send('Server is Running ' + new Date())
@@ -811,8 +963,6 @@ function authenticateToken(req, res, next){
       })
   }
 }
-
-
 
 
 const PORT = process.env.PORT || 8080;
