@@ -12,7 +12,7 @@ const bcrypt = require('bcrypt');
 const sgMail = require('@sendgrid/mail');
 const multer  = require('multer');
 
-sgMail.setApiKey('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');
+sgMail.setApiKey('');
 
 const storage = multer.diskStorage({
   destination : (req, file, callback) => {
