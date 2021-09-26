@@ -82,6 +82,11 @@ app.get('/images/:filename', (req, res) => {
   res.sendFile(filePath);
 })
 
+app.get('/api/news/stories', (req, res) => {
+  const filePath = __dirname + '/news.json' 
+  res.sendFile(filePath);
+})
+
 app.post('/api/register', async (req, res) => {
   var users = [];
   let foundUser = users.find((data) => req.body.email === data.email);
